@@ -120,4 +120,5 @@ end
 
 #DISPLAYS GAME LOOP
 def play(board)
-end 
+  input = gets 
+end
