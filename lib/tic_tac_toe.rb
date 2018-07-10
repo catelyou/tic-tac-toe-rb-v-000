@@ -121,5 +121,6 @@ end
 #DISPLAYS GAME LOOP
 def play(board)
  if winner(board) == "X" || "O"
-   puts "Congratulations, #{board[winning_combo.first]}"
+   puts "Congratulations, #{board[winning_combo.first]}!"
+ end 
 end
