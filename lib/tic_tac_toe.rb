@@ -1,5 +1,3 @@
-board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
-
 WIN_COMBINATIONS = [
   [0, 1, 2], #Top Row
   [3, 4, 5], #Middle Row
