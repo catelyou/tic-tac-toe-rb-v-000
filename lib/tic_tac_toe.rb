@@ -9,6 +9,7 @@ WIN_COMBINATIONS = [
   [2, 4, 6] #Right Diagonal
 ]
 
+#GAME BOARD
 def display_board(board)
   puts " #{board[0]} | #{board[1]} | #{board[2]} "
   puts "-----------"
@@ -17,18 +18,22 @@ def display_board(board)
   puts " #{board[6]} | #{board[7]} | #{board[8]} "
 end
 
+#CHANGES USER INPUT TO INDEX
 def input_to_index(user_input)
   converted_input = user_input.to_i - 1
 end
 
+#DEFINES TIC TAC TOE MOVE
 def move(board, position, character)
   board[position] = character
 end
 
+#IS THIS POSITION TAKEN?
 def position_taken? (board, index)
   !(board[index] == " " || board[index] == "" || board[index] == nil)
 end
 
+#IS THIS A VALID MOVE?
 def valid_move? (board, index)
   if(index.between?(0,8) && !position_taken?(board,index))
     return true
@@ -37,6 +42,7 @@ def valid_move? (board, index)
   end
 end
 
+#ASKS USER FOR TURN INPUT
 def turn(board)
   puts "Please enter 1-9:"
   user_input = gets.strip
@@ -49,6 +55,7 @@ def turn(board)
   end
 end
 
+#COUNTS NUMBER OF TURNS
 def turn_count(board)
   counter = 0
   board.each do |space|
@@ -59,6 +66,7 @@ def turn_count(board)
 return counter
 end
 
+#DISPLAYS CURRENT PLAYER
 def current_player(board)
   if turn_count(board) % 2 == 0
     current_player = "X"
@@ -68,6 +76,7 @@ def current_player(board)
 return current_player
 end
 
+#DISPLAYS WINNING COMBINATION
 def won?(board)
   WIN_COMBINATIONS.each do |wincombo|
   if board[wincombo[0]] == "X" && board[wincombo[1]] == "X" && board[wincombo[2]] == "X"
@@ -79,10 +88,12 @@ end
 false
 end
 
+#ASKS IF THE BOARD IS FULL
 def full?(board)
   board.all? {|i| i == "X" || i == "O"}
 end
 
+#IF GAME ENDS IN DRAW
 def draw?(board)
     if !won?(board) && full?(board)
       return true
@@ -91,6 +102,7 @@ def draw?(board)
     end
 end
 
+#IF GAME IS OVER
 def over?(board)
   if won?(board) || full?(board) || draw?(board)
     return true
@@ -99,8 +111,13 @@ def over?(board)
   end
 end
 
+#DISPLAYS WINNER OF GAME
 def winner(board)
   if winning_combo = won?(board)
     board[winning_combo.first]
   end
 end
+
+#DISPLAYS GAME LOOP
+def play(board)
+end 
