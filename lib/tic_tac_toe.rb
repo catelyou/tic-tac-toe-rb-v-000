@@ -120,7 +120,15 @@ end
 
 #DISPLAYS GAME LOOP
 def play(board)
- if winner(board) == "X" || "O"
-   puts "Congratulations, #{board[winning_combo.first]}!"
- end 
+  until over?(board) == true || won?(board) == true
+    puts "Turn."
+      turn(board)
+  end
+  if winner(board)
+    puts "Congratulations!"
+  elsif draw?(board)
+    puts "Draw!"
+  else
+    return nil
+  end 
 end
