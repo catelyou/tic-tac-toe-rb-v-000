@@ -120,5 +120,7 @@ end
 
 #DISPLAYS GAME LOOP
 def play(board)
-  input = gets 
-end
+  until full?(board) == true
+    turn(board)
+  end 
+end 
