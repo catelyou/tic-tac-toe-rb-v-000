@@ -121,13 +121,11 @@ end
 #DISPLAYS GAME LOOP
 def play(board)
   until over?(board) == true
-    puts "Turn."
       turn(board)
   end
-  if winner(board) == "X"
-    puts "Congratulations X!"
-  elsif winner(board) == "O"
-    puts "Congratulations O!"
+  
+  if won?(board)
+    puts "Congratulations #{winner(board)}!"
   elsif draw?(board)
     puts "Cat's Game!"
   else
