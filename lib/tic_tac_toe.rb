@@ -120,7 +120,7 @@ end
 
 #DISPLAYS GAME LOOP
 def play(board)
-  until over?(board) == true || won?(board) == true
+  until over?(board) == true
     puts "Turn."
       turn(board)
   end
