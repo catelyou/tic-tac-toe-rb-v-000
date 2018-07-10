@@ -120,9 +120,6 @@ end
 
 #DISPLAYS GAME LOOP
 def play(board)
-  counter = 0
-  until counter == 9
-    turn(board)
-    counter += 1
-  end
+ if winner(board) == "X" || "O"
+   puts "Congratulations, #{board[winning_combo.first]}"
 end
